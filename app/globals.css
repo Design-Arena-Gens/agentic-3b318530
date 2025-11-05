@@ -1,0 +1,114 @@
+/* CSS Reset (lightweight) */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #0b0b0b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --text: #0b0b0b;
+  --muted: #6b7280; /* gray-500 */
+  --border: #e5e7eb; /* gray-200 */
+  --shadow: 0 10px 20px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+  --radius: 12px;
+  --maxw: 720px;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 20px 120px; /* bottom padding to avoid overlap with ticker */
+}
+
+.hero {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 28px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 64px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-align: center;
+}
+
+.version {
+  position: relative;
+  top: -4px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+  background: #f3f4f6; /* gray-100 */
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.searchForm { width: 100%; }
+
+.searchInput {
+  display: block;
+  width: min(100%, var(--maxw));
+  margin: 0 auto;
+  height: 56px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 20px;
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+.searchInput::placeholder { color: #9ca3af; }
+.searchInput:focus {
+  border-color: #60a5fa; /* blue-400 */
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.25), var(--shadow);
+}
+
+.ticker {
+  position: fixed;
+  left: 0; right: 0; bottom: 56px; /* above footer */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+}
+.tickerLabel { color: var(--muted); font-weight: 600; }
+.tickerValue { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+.footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+.footerLink {
+  color: #6b7280; /* gray-500 */
+  text-decoration: none;
+  font-size: 12px;
+}
+.footerLink:hover { color: #111827; }
+.divider { color: #d1d5db; margin: 0 10px; }
